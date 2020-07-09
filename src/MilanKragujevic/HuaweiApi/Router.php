@@ -78,10 +78,20 @@ class Router {
         return ((string) $obj == 'OK');
     }
     
+    public function setModeB3Only() {
+        $this->prepare();
+        
+        $ledXml = '<?xml version: "1.0" encoding="UTF-8"?><request><NetworkMode>03</NetworkMode><NetworkBand>0</NetworkBand><LTEBand>4</LTEBand></request>';
+        $xml = $this->http->postXml($this->getUrl('api/net/net-mode'), $ledXml);
+        $obj = new \SimpleXMLElement($xml);
+        
+        return ((string) $obj == 'OK');
+    }
+    
     public function setModeAuto() {
         $this->prepare();
         
-        $ledXml = '<?xml version="1.0" encoding="UTF-8"?><request><NetworkMode>00</NetworkMode><NetworkBand>3FFFFFFF</NetworkBand><LTEBand>7FFFFFFFFFFFFFFF</LTEBand></request>';
+        $ledXml = '<?xml version: "1.0" encoding="UTF-8"?><request><NetworkMode>03</NetworkMode><NetworkBand>0</NetworkBand><LTEBand>80004</LTEBand></request>';
         $xml = $this->http->postXml($this->getUrl('api/net/net-mode'), $ledXml);
         $obj = new \SimpleXMLElement($xml);
         
@@ -90,6 +100,8 @@ class Router {
     
     public function toggleLTE() {
         $this->setMode2GOnly();
+        sleep(1);
+        $this->setModeB3Only();
         sleep(1);
         $this->setModeAuto();
     }
