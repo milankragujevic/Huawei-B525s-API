@@ -1,24 +1,30 @@
 {
-    "name": "hsp-dev/huawei-api",
+    "name": "milankragujevic/huawei-api",
     "type": "library",
-    "description": "A barebones API to interact with the Huawei E5180 router",
-    "homepage": "https://github.com/HSPDev/Huawei-E5180-API",
-    "keywords": ["api","E5180"],
+    "description": "A barebones API to interact with the Huawei B525s router",
+    "homepage": "https://github.com/milankragujevic/Huawei-B525s-API",
+    "keywords": ["api","B525s"],
     "license": "MIT",
     "authors": [
+        {
+            "name": "Milan Kragujević",
+            "email": "milankragujevic@gmail.com",
+            "homepage": "https://milankragujevic.com",
+            "role": "Developer"
+        },
         {
             "name": "Henrik Sylvester Pedersen",
             "email": "hsp@hsp.dk",
             "homepage": "http://blog.hsp.dk",
-            "role": "Developer"
+            "role": "Original Developer"
         }
     ],
     "autoload": {
         "psr-0" : {
-            "HSPDev\\HuaweiApi" : "src"
+            "MilanKragujevic\\HuaweiApi" : "src"
         }
     },
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.6.0"
     }
 }
